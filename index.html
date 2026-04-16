@@ -23,10 +23,9 @@
       font-size: 12px; font-weight: 600; border: none; border-radius: 6px;
       padding: 6px 10px; cursor: pointer; white-space: nowrap; flex-shrink: 0;
     }
-    #resolved-btn { background: rgba(255,255,255,.15); color: #fff; }
-    #resolved-btn.active { background: #6c757d; }
     #report-btn { background: #e74c3c; color: #fff; }
     #report-btn:hover { background: #c0392b; }
+    .filter-sep { border: none; border-top: 1px solid #e8e8e8; margin: 5px 0; }
 
     /* ── Map ── */
     #map { position: fixed; top: 52px; bottom: 0; left: 0; right: 0; }
@@ -107,14 +106,13 @@
   <h1>Cambridgeshire Street Issues
     <span id="count-badge">Loading…</span>
   </h1>
-  <button class="hbtn" id="resolved-btn" onclick="toggleResolved()">Show resolved</button>
-  <button class="hbtn" id="report-btn"   onclick="openReportModal()">+ Report</button>
+  <button class="hbtn" id="report-btn" onclick="openReportModal()">+ Report</button>
 </div>
 
 <div id="map"></div>
 
 <div id="filter-panel">
-  <div id="filter-toggle">Categories <span id="toggle-icon">▾</span></div>
+  <div id="filter-toggle">Filter <span id="toggle-icon">▾</span></div>
   <div id="filter-list"></div>
 </div>
 
@@ -159,6 +157,7 @@
   const layersByCategory = {};
   const enabledCategories = new Set();
   let fixedLayer = null;
+  let openVisible = true;
   let resolvedVisible = false;
   let resolvedLoaded = false;
 
@@ -221,6 +220,50 @@
     data.reports.forEach(r => { counts[r.category] = (counts[r.category] || 0) + 1; });
 
     const list = document.getElementById('filter-list');
+
+    // Status rows (Open / Resolved) at the top
+    function makeStatusLabel(id, colour, text, count, checked, onChange) {
+      const label = document.createElement('label');
+      label.innerHTML = `
+        <input type="checkbox" id="${id}" ${checked ? 'checked' : ''}>
+        <span class="cat-dot" style="background:${colour}"></span>
+        ${text} <span class="cat-n" id="${id}-count">${count}</span>`;
+      label.querySelector('input').addEventListener('change', onChange);
+      return label;
+    }
+
+    list.appendChild(makeStatusLabel(
+      'chk-open', '#e74c3c', 'Open', data.count, true,
+      e => { openVisible = e.target.checked; updateVisibility(); }
+    ));
+
+    list.appendChild(makeStatusLabel(
+      'chk-resolved', '#bbb', 'Resolved', '4,193', false,
+      e => {
+        const chk = e.target;
+        if (chk.checked) {
+          chk.disabled = true;
+          document.getElementById('chk-resolved-count').textContent = 'Loading…';
+          loadResolved().then(count => {
+            chk.disabled = false;
+            document.getElementById('chk-resolved-count').textContent =
+              count.toLocaleString();
+            resolvedVisible = true;
+            updateVisibility();
+          });
+        } else {
+          resolvedVisible = false;
+          updateVisibility();
+        }
+      }
+    ));
+
+    // Separator between status and category rows
+    const sep = document.createElement('hr');
+    sep.className = 'filter-sep';
+    list.appendChild(sep);
+
+    // Category rows
     Object.entries(counts).sort((a,b) => b[1]-a[1]).forEach(([cat, n]) => {
       const colour = data.reports.find(r => r.category === cat)?.colour || '#888';
       enabledCategories.add(cat);
@@ -239,10 +282,16 @@
   }
 
   function updateVisibility() {
+    // Open category layers
     Object.entries(layersByCategory).forEach(([cat, grp]) => {
-      if (enabledCategories.has(cat)) map.addLayer(grp);
+      if (openVisible && enabledCategories.has(cat)) map.addLayer(grp);
       else map.removeLayer(grp);
     });
+    // Resolved layer
+    if (fixedLayer) {
+      if (resolvedVisible) map.addLayer(fixedLayer);
+      else map.removeLayer(fixedLayer);
+    }
   }
 
   let filterOpen = true;
@@ -253,28 +302,8 @@
   });
 
   // ── Resolved (fixed) reports ─────────────────────────────────────────
-  function toggleResolved() {
-    const btn = document.getElementById('resolved-btn');
-    if (!resolvedVisible) {
-      btn.textContent = 'Loading…';
-      btn.disabled = true;
-      loadResolved().then(() => {
-        resolvedVisible = true;
-        btn.textContent = 'Hide resolved';
-        btn.classList.add('active');
-        btn.disabled = false;
-        if (fixedLayer) map.addLayer(fixedLayer);
-      });
-    } else {
-      resolvedVisible = false;
-      btn.textContent = 'Show resolved';
-      btn.classList.remove('active');
-      if (fixedLayer) map.removeLayer(fixedLayer);
-    }
-  }
-
   function loadResolved() {
-    if (resolvedLoaded) return Promise.resolve();
+    if (resolvedLoaded) return Promise.resolve(fixedLayer.getLayers().length);
     return fetch('data/fixed.json')
       .then(r => r.json())
       .then(data => {
@@ -282,8 +311,8 @@
         fixedLayer = L.layerGroup();
         data.reports.forEach(r => {
           L.circleMarker([r.lat, r.lon], {
-            radius: 5, color: '#888', fillColor: '#bbb',
-            fillOpacity: 0.5, weight: 1,
+            radius: 5, color: '#999', fillColor: '#ccc',
+            fillOpacity: 0.55, weight: 1,
           }).bindPopup(`
             <div class="pop-cat" style="color:#888">Resolved</div>
             <div class="pop-title">${escHtml(r.title)}</div>
@@ -292,6 +321,7 @@
             </div>`)
           .addTo(fixedLayer);
         });
+        return data.count;
       });
   }
 
