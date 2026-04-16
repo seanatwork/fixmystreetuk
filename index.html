@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cambridgeshire Street Issues</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; }
+
+    /* ── Header ── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: 52px; background: #1a3a5c; color: #fff;
+      display: flex; align-items: center; gap: 8px; padding: 0 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.4);
+    }
+    #header h1 { font-size: 14px; font-weight: 600; flex: 1; line-height: 1.25; }
+    #header h1 span { display: block; font-size: 10px; font-weight: 400; opacity: .7; }
+
+    .hbtn {
+      font-size: 12px; font-weight: 600; border: none; border-radius: 6px;
+      padding: 6px 10px; cursor: pointer; white-space: nowrap; flex-shrink: 0;
+    }
+    #resolved-btn { background: rgba(255,255,255,.15); color: #fff; }
+    #resolved-btn.active { background: #6c757d; }
+    #report-btn { background: #e74c3c; color: #fff; }
+    #report-btn:hover { background: #c0392b; }
+
+    /* ── Map ── */
+    #map { position: fixed; top: 52px; bottom: 0; left: 0; right: 0; }
+
+    /* ── Filter panel ── */
+    #filter-panel {
+      position: fixed; bottom: 20px; left: 10px; z-index: 1000;
+      background: rgba(255,255,255,.96); border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.2);
+      padding: 9px 11px; min-width: 155px;
+      max-height: calc(100vh - 90px); overflow-y: auto;
+    }
+    #filter-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .5px; color: #333;
+      margin-bottom: 7px; user-select: none;
+    }
+    #filter-list { display: flex; flex-direction: column; gap: 5px; }
+    #filter-list label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: #444; cursor: pointer; user-select: none;
+    }
+    .cat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .cat-n   { color: #aaa; margin-left: auto; font-size: 11px; }
+
+    /* ── Popup ── */
+    .leaflet-popup-content { font-size: 13px; line-height: 1.5; min-width: 190px; }
+    .pop-cat  { font-size: 11px; font-weight: 700; text-transform: uppercase;
+                letter-spacing: .4px; margin-bottom: 3px; }
+    .pop-title { font-weight: 600; margin-bottom: 6px; }
+    .pop-links { display: flex; flex-direction: column; gap: 4px; }
+    .pop-links a {
+      font-size: 12px; color: #1a3a5c; text-decoration: none;
+      border-bottom: 1px solid currentColor; width: fit-content;
+    }
+    .pop-warn {
+      font-size: 11px; color: #b7560a; background: #fff3e0;
+      border-radius: 4px; padding: 4px 6px; margin-top: 6px;
+    }
+
+    /* ── Report modal ── */
+    #modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.5); align-items: center; justify-content: center;
+    }
+    #modal-overlay.open { display: flex; }
+    #modal {
+      background: #fff; border-radius: 12px; padding: 20px;
+      max-width: 320px; width: 90%; box-shadow: 0 8px 30px rgba(0,0,0,.3);
+    }
+    #modal h2 { font-size: 15px; margin-bottom: 6px; color: #1a3a5c; }
+    #modal p  { font-size: 12px; color: #555; margin-bottom: 14px; line-height: 1.5; }
+    .modal-opt {
+      display: block; width: 100%; text-align: left;
+      padding: 11px 14px; margin-bottom: 8px;
+      border-radius: 8px; border: 1.5px solid #ddd;
+      cursor: pointer; text-decoration: none; background: #fff;
+      font-size: 13px; color: #222;
+    }
+    .modal-opt strong { display: block; margin-bottom: 2px; }
+    .modal-opt span   { font-size: 11px; color: #777; }
+    .modal-opt.primary { border-color: #1a3a5c; background: #f0f4f8; }
+    .modal-opt:hover   { border-color: #1a3a5c; }
+    #modal-cancel { font-size: 12px; color: #888; background: none; border: none;
+                    cursor: pointer; width: 100%; margin-top: 4px; }
+
+    /* ── Info strip ── */
+    #info-strip {
+      position: fixed; bottom: 0; right: 8px; z-index: 999;
+      font-size: 10px; color: #888; padding: 2px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <h1>Cambridgeshire Street Issues
+    <span id="count-badge">Loading…</span>
+  </h1>
+  <button class="hbtn" id="resolved-btn" onclick="toggleResolved()">Show resolved</button>
+  <button class="hbtn" id="report-btn"   onclick="openReportModal()">+ Report</button>
+</div>
+
+<div id="map"></div>
+
+<div id="filter-panel">
+  <div id="filter-toggle">Categories <span id="toggle-icon">▾</span></div>
+  <div id="filter-list"></div>
+</div>
+
+<div id="info-strip"></div>
+
+<!-- Report modal -->
+<div id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div id="modal">
+    <h2>What would you like to report?</h2>
+    <p>Choose where to send your report — the right destination matters.</p>
+    <a id="modal-ccc" class="modal-opt primary" target="_blank" rel="noopener"
+       href="https://highwaysreporting.cambridgeshire.gov.uk/en-gb">
+      <strong>Highways issue</strong>
+      <span>Pothole · Road damage · Street lighting · Pavement · Traffic sign</span>
+    </a>
+    <a id="modal-fms" class="modal-opt" target="_blank" rel="noopener"
+       href="https://www.fixmystreet.com/">
+      <strong>Other issue</strong>
+      <span>Fly-tipping · Abandoned vehicle · Graffiti · Litter · Parks</span>
+    </a>
+    <button id="modal-cancel" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // ── Categories handled by Cambridgeshire County Council (not reliably via FMS) ──
+  const CCC_CATS = new Set([
+    'Potholes','Roads/highways','Street lighting','Pavements/footpaths',
+    'Traffic lights','Road traffic signs','Street nameplates','Trees',
+  ]);
+
+  // ── Map ──────────────────────────────────────────────────────────────
+  const map = L.map('map', { center: [52.185, 0.155], zoom: 12 });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19,
+  }).addTo(map);
+
+  // ── State ────────────────────────────────────────────────────────────
+  const layersByCategory = {};
+  const enabledCategories = new Set();
+  let fixedLayer = null;
+  let resolvedVisible = false;
+  let resolvedLoaded = false;
+
+  // ── Load open reports ────────────────────────────────────────────────
+  fetch('data/reports.json')
+    .then(r => r.json())
+    .then(data => {
+      buildFilters(data);
+      plotOpen(data.reports);
+      document.getElementById('count-badge').textContent =
+        `${data.count} open · ${new Date(data.fetched_at)
+          .toLocaleDateString('en-GB',{day:'numeric',month:'short'})}`;
+      document.getElementById('info-strip').textContent =
+        `Refreshed ${new Date(data.fetched_at)
+          .toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}`;
+    })
+    .catch(() => {
+      document.getElementById('count-badge').textContent = 'Error loading data';
+    });
+
+  // ── Plot open reports ────────────────────────────────────────────────
+  function plotOpen(reports) {
+    reports.forEach(r => {
+      const isCCC = CCC_CATS.has(r.category);
+      const marker = L.circleMarker([r.lat, r.lon], {
+        radius: 7, color: darken(r.colour),
+        fillColor: r.colour, fillOpacity: 0.85, weight: 1.5,
+      }).bindPopup(buildPopup(r, isCCC));
+
+      if (!layersByCategory[r.category]) {
+        layersByCategory[r.category] = L.layerGroup().addTo(map);
+      }
+      layersByCategory[r.category].addLayer(marker);
+    });
+  }
+
+  function buildPopup(r, isCCC) {
+    const reportUrl = isCCC
+      ? 'https://highwaysreporting.cambridgeshire.gov.uk/en-gb'
+      : `https://www.fixmystreet.com/report/${r.id}`;
+    const reportLabel = isCCC
+      ? 'Report highways issue to CCC →'
+      : 'View on FixMyStreet →';
+    const warn = isCCC
+      ? `<div class="pop-warn">⚠ Highways issues: use the CCC tool to guarantee delivery to the council.</div>`
+      : '';
+    return `
+      <div class="pop-cat" style="color:${r.colour || '#555'}">${escHtml(r.category || '')}</div>
+      <div class="pop-title">${escHtml(r.title)}</div>
+      <div class="pop-links">
+        <a href="https://www.fixmystreet.com/report/${r.id}" target="_blank" rel="noopener">View on FixMyStreet →</a>
+        <a href="${reportUrl}" target="_blank" rel="noopener">${reportLabel}</a>
+      </div>
+      ${warn}`;
+  }
+
+  // ── Filter panel ─────────────────────────────────────────────────────
+  function buildFilters(data) {
+    const counts = {};
+    data.reports.forEach(r => { counts[r.category] = (counts[r.category] || 0) + 1; });
+
+    const list = document.getElementById('filter-list');
+    Object.entries(counts).sort((a,b) => b[1]-a[1]).forEach(([cat, n]) => {
+      const colour = data.reports.find(r => r.category === cat)?.colour || '#888';
+      enabledCategories.add(cat);
+      const label = document.createElement('label');
+      label.innerHTML = `
+        <input type="checkbox" checked data-cat="${cat}">
+        <span class="cat-dot" style="background:${colour}"></span>
+        ${escHtml(cat)} <span class="cat-n">${n}</span>`;
+      label.querySelector('input').addEventListener('change', e => {
+        if (e.target.checked) enabledCategories.add(cat);
+        else enabledCategories.delete(cat);
+        updateVisibility();
+      });
+      list.appendChild(label);
+    });
+  }
+
+  function updateVisibility() {
+    Object.entries(layersByCategory).forEach(([cat, grp]) => {
+      if (enabledCategories.has(cat)) map.addLayer(grp);
+      else map.removeLayer(grp);
+    });
+  }
+
+  let filterOpen = true;
+  document.getElementById('filter-toggle').addEventListener('click', () => {
+    filterOpen = !filterOpen;
+    document.getElementById('filter-list').style.display = filterOpen ? '' : 'none';
+    document.getElementById('toggle-icon').textContent = filterOpen ? '▾' : '▸';
+  });
+
+  // ── Resolved (fixed) reports ─────────────────────────────────────────
+  function toggleResolved() {
+    const btn = document.getElementById('resolved-btn');
+    if (!resolvedVisible) {
+      btn.textContent = 'Loading…';
+      btn.disabled = true;
+      loadResolved().then(() => {
+        resolvedVisible = true;
+        btn.textContent = 'Hide resolved';
+        btn.classList.add('active');
+        btn.disabled = false;
+        if (fixedLayer) map.addLayer(fixedLayer);
+      });
+    } else {
+      resolvedVisible = false;
+      btn.textContent = 'Show resolved';
+      btn.classList.remove('active');
+      if (fixedLayer) map.removeLayer(fixedLayer);
+    }
+  }
+
+  function loadResolved() {
+    if (resolvedLoaded) return Promise.resolve();
+    return fetch('data/fixed.json')
+      .then(r => r.json())
+      .then(data => {
+        resolvedLoaded = true;
+        fixedLayer = L.layerGroup();
+        data.reports.forEach(r => {
+          L.circleMarker([r.lat, r.lon], {
+            radius: 5, color: '#888', fillColor: '#bbb',
+            fillOpacity: 0.5, weight: 1,
+          }).bindPopup(`
+            <div class="pop-cat" style="color:#888">Resolved</div>
+            <div class="pop-title">${escHtml(r.title)}</div>
+            <div class="pop-links">
+              <a href="https://www.fixmystreet.com/report/${r.id}" target="_blank" rel="noopener">View on FixMyStreet →</a>
+            </div>`)
+          .addTo(fixedLayer);
+        });
+      });
+  }
+
+  // ── Report modal ─────────────────────────────────────────────────────
+  function openReportModal() {
+    // Pre-fill both links with current map centre
+    const c = map.getCenter();
+    const lat = c.lat.toFixed(6), lon = c.lng.toFixed(6);
+    document.getElementById('modal-fms').href =
+      `https://www.fixmystreet.com/?lat=${lat}&lon=${lon}&zoom=16`;
+    // CCC tool doesn't accept URL params — just link to homepage
+    document.getElementById('modal-overlay').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+  }
+
+  // ── Helpers ───────────────────────────────────────────────────────────
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function darken(hex) {
+    if (!hex || hex[0] !== '#') return '#555';
+    const n = parseInt(hex.slice(1), 16);
+    const r = Math.max(0,(n>>16)-60), g = Math.max(0,((n>>8)&0xff)-60), b = Math.max(0,(n&0xff)-60);
+    return `rgb(${r},${g},${b})`;
+  }
+</script>
+</body>
+</html>

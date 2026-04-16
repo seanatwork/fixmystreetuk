@@ -1,0 +1,500 @@
+{
+  "fetched_at": "2026-04-16T19:27:39Z",
+  "bbox": [
+    0.05,
+    52.12,
+    0.3,
+    52.26
+  ],
+  "count": 61,
+  "reports": [
+    {
+      "id": 9301635,
+      "lat": 52.224863,
+      "lon": 0.116471,
+      "title": "Dumped stuff with rats",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 9295355,
+      "lat": 52.149538,
+      "lon": 0.136482,
+      "title": "Voi bike left opposite hall are gardens",
+      "category": "Abandoned vehicles",
+      "colour": "#95a5a6"
+    },
+    {
+      "id": 9287759,
+      "lat": 52.214517,
+      "lon": 0.161178,
+      "title": "4 black rubbish bags obstructing the path",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 9287726,
+      "lat": 52.214433,
+      "lon": 0.161379,
+      "title": "4 black bags of rubbish left on the path",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 9273875,
+      "lat": 52.198557,
+      "lon": 0.147417,
+      "title": "Tree Preservation Order application",
+      "category": "Trees",
+      "colour": "#2ecc71"
+    },
+    {
+      "id": 9273856,
+      "lat": 52.198387,
+      "lon": 0.147324,
+      "title": "Tree Preservation Order application",
+      "category": "Trees",
+      "colour": "#2ecc71"
+    },
+    {
+      "id": 9241595,
+      "lat": 52.185853,
+      "lon": 0.144678,
+      "title": "Delineation of disabled bay now absent",
+      "category": "Street cleaning",
+      "colour": "#16a085"
+    },
+    {
+      "id": 9240838,
+      "lat": 52.149061,
+      "lon": 0.19117,
+      "title": "Low hanging tree, overhanging onto road",
+      "category": "Trees",
+      "colour": "#2ecc71"
+    },
+    {
+      "id": 9234970,
+      "lat": 52.215087,
+      "lon": 0.125606,
+      "title": "Exceeding parking limit of 30 min",
+      "category": "Car parking",
+      "colour": "#1abc9c"
+    },
+    {
+      "id": 9232035,
+      "lat": 52.229565,
+      "lon": 0.129311,
+      "title": "One boy keeps cutting the council owned tree",
+      "category": "Trees",
+      "colour": "#2ecc71"
+    },
+    {
+      "id": 9209663,
+      "lat": 52.22525,
+      "lon": 0.15067,
+      "title": "Abandoned mobility scooter",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 9207329,
+      "lat": 52.206784,
+      "lon": 0.136164,
+      "title": "Large potholes around the junction",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 9207266,
+      "lat": 52.142961,
+      "lon": 0.134414,
+      "title": "Tree has fallen into river",
+      "category": "Parks/landscapes",
+      "colour": "#229954"
+    },
+    {
+      "id": 9182416,
+      "lat": 52.198073,
+      "lon": 0.143382,
+      "title": "Fruit covering pavement",
+      "category": "Trees",
+      "colour": "#2ecc71"
+    },
+    {
+      "id": 9171004,
+      "lat": 52.188044,
+      "lon": 0.160071,
+      "title": "Dumped fridge",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 9146990,
+      "lat": 52.126232,
+      "lon": 0.167872,
+      "title": "Lots of Potholes",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 9123353,
+      "lat": 52.210832,
+      "lon": 0.177913,
+      "title": "Potholes",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 9118184,
+      "lat": 52.127889,
+      "lon": 0.165258,
+      "title": "Multiple potholes",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 9115242,
+      "lat": 52.143274,
+      "lon": 0.139557,
+      "title": "Fly tipping cb22 5bs",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 9070012,
+      "lat": 52.225363,
+      "lon": 0.176672,
+      "title": "Large deep pothole",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 9062817,
+      "lat": 52.194003,
+      "lon": 0.107443,
+      "title": "Tesco van blocking the street",
+      "category": "Abandoned vehicles",
+      "colour": "#95a5a6"
+    },
+    {
+      "id": 9029117,
+      "lat": 52.180911,
+      "lon": 0.151249,
+      "title": "Illegal Pavement Parking",
+      "category": "Car parking",
+      "colour": "#1abc9c"
+    },
+    {
+      "id": 9022075,
+      "lat": 52.221599,
+      "lon": 0.112599,
+      "title": "12 inch pothole",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 9015357,
+      "lat": 52.187402,
+      "lon": 0.214955,
+      "title": "Extremely large hole and very deep",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8993866,
+      "lat": 52.198664,
+      "lon": 0.121845,
+      "title": "Abandoned bikes",
+      "category": "Abandoned vehicles",
+      "colour": "#95a5a6"
+    },
+    {
+      "id": 8959861,
+      "lat": 52.178574,
+      "lon": 0.223433,
+      "title": "Pothole opposite Home End Road",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8943440,
+      "lat": 52.218858,
+      "lon": 0.122703,
+      "title": "Monster potholes",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8943354,
+      "lat": 52.208546,
+      "lon": 0.13799,
+      "title": "48 inches of potholes",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8943324,
+      "lat": 52.219311,
+      "lon": 0.121901,
+      "title": "Very large potholes",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8904825,
+      "lat": 52.209075,
+      "lon": 0.141814,
+      "title": "Huge pothole across the lane on the left si traffic cannot file into it",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8904751,
+      "lat": 52.226426,
+      "lon": 0.128431,
+      "title": "Huge pothole on the speed bump outside the community centre",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8888406,
+      "lat": 52.21077,
+      "lon": 0.115271,
+      "title": "Blocked gulley lesding to flooding in Magdalene St from all water running off Chesterton lane",
+      "category": "Street cleaning",
+      "colour": "#16a085"
+    },
+    {
+      "id": 8835954,
+      "lat": 52.207663,
+      "lon": 0.140334,
+      "title": "Broken drain cover outside 89 New Street",
+      "category": "Roads/highways",
+      "colour": "#c0392b"
+    },
+    {
+      "id": 8800531,
+      "lat": 52.157163,
+      "lon": 0.128174,
+      "title": "Pot hole",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8777984,
+      "lat": 52.234908,
+      "lon": 0.117998,
+      "title": "Parked in a disabled bay and when I said something they said \" don't need one but you will need to I'm a minute you hobby cunt\"",
+      "category": "Car parking",
+      "colour": "#1abc9c"
+    },
+    {
+      "id": 8753527,
+      "lat": 52.219481,
+      "lon": 0.15255,
+      "title": "10cm deep pothole on Water Street",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8744313,
+      "lat": 52.168475,
+      "lon": 0.109386,
+      "title": "5 abandoned mattresses",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 8733992,
+      "lat": 52.23443,
+      "lon": 0.153846,
+      "title": "Perlescent Audi Parked on Double yellow lines for weekk",
+      "category": "Abandoned vehicles",
+      "colour": "#95a5a6"
+    },
+    {
+      "id": 8729769,
+      "lat": 52.192182,
+      "lon": 0.133158,
+      "title": "Large and deep pothole near the intersection with Hills Rd",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8728338,
+      "lat": 52.181109,
+      "lon": 0.116442,
+      "title": "Huge pothole just after traffic lights.",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8728166,
+      "lat": 52.207826,
+      "lon": 0.129074,
+      "title": "The road at the crossing point is littered with potholes.",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8721203,
+      "lat": 52.2173,
+      "lon": 0.170616,
+      "title": "Traffic light problem",
+      "category": "Traffic lights",
+      "colour": "#d35400"
+    },
+    {
+      "id": 8708118,
+      "lat": 52.172636,
+      "lon": 0.160367,
+      "title": "Sharp edged pothole in carriageway",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8689019,
+      "lat": 52.199698,
+      "lon": 0.116501,
+      "title": "Human excrement on wall and pavement between Scudamores boatyard and Graduate hotel",
+      "category": "Street cleaning",
+      "colour": "#16a085"
+    },
+    {
+      "id": 8671820,
+      "lat": 52.217345,
+      "lon": 0.128375,
+      "title": "Graffiti",
+      "category": "Graffiti",
+      "colour": "#9b59b6"
+    },
+    {
+      "id": 8659175,
+      "lat": 52.165338,
+      "lon": 0.112267,
+      "title": "This car has been abandoned on the road for 1 week now.",
+      "category": "Abandoned vehicles",
+      "colour": "#95a5a6"
+    },
+    {
+      "id": 8637945,
+      "lat": 52.160397,
+      "lon": 0.125424,
+      "title": "I was driving on the main road and I hit the pothole",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8625950,
+      "lat": 52.123168,
+      "lon": 0.111056,
+      "title": "Missing Public Footpath Sign",
+      "category": "Other",
+      "colour": "#808b96"
+    },
+    {
+      "id": 8604854,
+      "lat": 52.195465,
+      "lon": 0.130769,
+      "title": "Pedestrian buttons not working",
+      "category": "Traffic lights",
+      "colour": "#d35400"
+    },
+    {
+      "id": 8590399,
+      "lat": 52.18024,
+      "lon": 0.115835,
+      "title": "The road is filled with potholes and quite impossible to drive or cycle on it",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8545326,
+      "lat": 52.21773,
+      "lon": 0.139882,
+      "title": "Pothole near curb by chapel street busstop",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8543403,
+      "lat": 52.222161,
+      "lon": 0.157836,
+      "title": "Large pothole",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8512606,
+      "lat": 52.253298,
+      "lon": 0.097059,
+      "title": "Near dropped kerb",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8510595,
+      "lat": 52.163461,
+      "lon": 0.133017,
+      "title": "10 inch pothole",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8421508,
+      "lat": 52.204567,
+      "lon": 0.261962,
+      "title": "Street name sign knocked over completely",
+      "category": "Street nameplates",
+      "colour": "#3498db"
+    },
+    {
+      "id": 8416952,
+      "lat": 52.195849,
+      "lon": 0.183899,
+      "title": "Blocked Drain",
+      "category": "Roads/highways",
+      "colour": "#c0392b"
+    },
+    {
+      "id": 8406455,
+      "lat": 52.215244,
+      "lon": 0.257457,
+      "title": "Flytip",
+      "category": "Flytipping",
+      "colour": "#27ae60"
+    },
+    {
+      "id": 8352554,
+      "lat": 52.212462,
+      "lon": 0.134968,
+      "title": "Awful potholes down the entire lane",
+      "category": "Potholes",
+      "colour": "#e74c3c"
+    },
+    {
+      "id": 8341034,
+      "lat": 52.19349,
+      "lon": 0.18242,
+      "title": "Lack of street lightning near Nisa, Capucin court",
+      "category": "Parks/landscapes",
+      "colour": "#229954"
+    },
+    {
+      "id": 8311671,
+      "lat": 52.212983,
+      "lon": 0.125913,
+      "title": "Needs cleaning up",
+      "category": "Graffiti",
+      "colour": "#9b59b6"
+    },
+    {
+      "id": 8311273,
+      "lat": 52.238164,
+      "lon": 0.14983,
+      "title": "Litter on Milton roundabout and adjacent slip roads",
+      "category": "Street cleaning",
+      "colour": "#16a085"
+    }
+  ]
+}

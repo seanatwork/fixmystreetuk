@@ -1,0 +1,33 @@
+name: Refresh report data
+
+on:
+  schedule:
+    - cron: "0 7 * * *"     # daily at 07:00 UTC
+  push:
+    branches: [main]
+  workflow_dispatch:         # manual trigger from GitHub UI
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # needed to push data/reports.json
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch reports from FixMyStreet
+        run: python scripts/fetch_reports.py
+
+      - name: Commit updated data if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/reports.json
+          git diff --cached --quiet \
+            || git commit -m "chore: refresh report data [skip ci]"
+          git push
