@@ -310,11 +310,13 @@
         resolvedLoaded = true;
         fixedLayer = L.layerGroup();
         data.reports.forEach(r => {
+          const colour = r.colour || '#ccc';
+          const category = r.category || 'Other';
           L.circleMarker([r.lat, r.lon], {
-            radius: 5, color: '#999', fillColor: '#ccc',
+            radius: 5, color: darken(colour), fillColor: colour,
             fillOpacity: 0.55, weight: 1,
           }).bindPopup(`
-            <div class="pop-cat" style="color:#888">Resolved</div>
+            <div class="pop-cat" style="color:${colour}">Resolved · ${escHtml(category)}</div>
             <div class="pop-title">${escHtml(r.title)}</div>
             <div class="pop-links">
               <a href="https://www.fixmystreet.com/report/${r.id}" target="_blank" rel="noopener">View on FixMyStreet →</a>

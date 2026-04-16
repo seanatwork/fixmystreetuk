@@ -1,0 +1,490 @@
+{
+  "9207329": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9146990": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9123353": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9118184": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9070012": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9022075": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9015357": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8943440": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8959861": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8943324": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8943354": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8904825": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8904751": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8800531": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8753527": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8729769": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8728338": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8728166": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8708118": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8637945": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8590399": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8545326": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8543403": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8512606": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8510595": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8352554": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8835954": {
+    "category": "Roads/highways",
+    "colour": "#c0392b"
+  },
+  "8416952": {
+    "category": "Roads/highways",
+    "colour": "#c0392b"
+  },
+  "9301635": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9287726": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9287759": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9209663": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9171004": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9115242": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "8744313": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "8406455": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9273875": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9273856": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9240838": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9232035": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9182416": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9241595": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8888406": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8689019": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8311273": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8671820": {
+    "category": "Graffiti",
+    "colour": "#9b59b6"
+  },
+  "8311671": {
+    "category": "Graffiti",
+    "colour": "#9b59b6"
+  },
+  "8421508": {
+    "category": "Street nameplates",
+    "colour": "#3498db"
+  },
+  "9234970": {
+    "category": "Car parking",
+    "colour": "#1abc9c"
+  },
+  "9029117": {
+    "category": "Car parking",
+    "colour": "#1abc9c"
+  },
+  "8777984": {
+    "category": "Car parking",
+    "colour": "#1abc9c"
+  },
+  "9295355": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "9062817": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8993866": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8733992": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8659175": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8721203": {
+    "category": "Traffic lights",
+    "colour": "#d35400"
+  },
+  "8604854": {
+    "category": "Traffic lights",
+    "colour": "#d35400"
+  },
+  "9207266": {
+    "category": "Parks/landscapes",
+    "colour": "#229954"
+  },
+  "8341034": {
+    "category": "Parks/landscapes",
+    "colour": "#229954"
+  },
+  "8625950": {
+    "category": "Other",
+    "colour": "#808b96"
+  },
+  "9207329": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9146990": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9123353": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9118184": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9070012": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9022075": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "9015357": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8943440": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8959861": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8943324": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8943354": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8904825": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8904751": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8800531": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8753527": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8729769": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8728338": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8728166": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8708118": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8637945": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8590399": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8545326": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8543403": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8512606": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8510595": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8352554": {
+    "category": "Potholes",
+    "colour": "#e74c3c"
+  },
+  "8835954": {
+    "category": "Roads/highways",
+    "colour": "#c0392b"
+  },
+  "8416952": {
+    "category": "Roads/highways",
+    "colour": "#c0392b"
+  },
+  "9301635": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9287726": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9287759": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9209663": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9171004": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9115242": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "8744313": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "8406455": {
+    "category": "Flytipping",
+    "colour": "#27ae60"
+  },
+  "9273875": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9273856": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9240838": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9232035": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9182416": {
+    "category": "Trees",
+    "colour": "#2ecc71"
+  },
+  "9241595": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8888406": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8689019": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8311273": {
+    "category": "Street cleaning",
+    "colour": "#16a085"
+  },
+  "8671820": {
+    "category": "Graffiti",
+    "colour": "#9b59b6"
+  },
+  "8311671": {
+    "category": "Graffiti",
+    "colour": "#9b59b6"
+  },
+  "8421508": {
+    "category": "Street nameplates",
+    "colour": "#3498db"
+  },
+  "9234970": {
+    "category": "Car parking",
+    "colour": "#1abc9c"
+  },
+  "9029117": {
+    "category": "Car parking",
+    "colour": "#1abc9c"
+  },
+  "8777984": {
+    "category": "Car parking",
+    "colour": "#1abc9c"
+  },
+  "9295355": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "9062817": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8993866": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8733992": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8659175": {
+    "category": "Abandoned vehicles",
+    "colour": "#95a5a6"
+  },
+  "8721203": {
+    "category": "Traffic lights",
+    "colour": "#d35400"
+  },
+  "8604854": {
+    "category": "Traffic lights",
+    "colour": "#d35400"
+  },
+  "9207266": {
+    "category": "Parks/landscapes",
+    "colour": "#229954"
+  },
+  "8341034": {
+    "category": "Parks/landscapes",
+    "colour": "#229954"
+  },
+  "8625950": {
+    "category": "Other",
+    "colour": "#808b96"
+  }
+}

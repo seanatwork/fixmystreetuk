@@ -147,6 +147,16 @@ def main() -> None:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     DATA_DIR.mkdir(exist_ok=True)
 
+    # Load existing category cache if it exists
+    cache_file = DATA_DIR / "category_cache.json"
+    category_cache: dict[int, dict] = {}
+    if cache_file.exists():
+        try:
+            category_cache = json.loads(cache_file.read_text())
+            print(f"Loaded category cache with {len(category_cache)} entries")
+        except:
+            pass
+
     # ── Step 1: open reports, per category (gives us category + colour) ──
     print(f"Step 1 — open reports by category (bbox {BBOX})")
     open_reports: dict[int, dict] = {}
@@ -155,6 +165,11 @@ def main() -> None:
         reports = fetch_category(cat)
         new = 0
         for r in reports:
+            # Update cache with current category
+            category_cache[r["id"]] = {
+                "category": r["category"],
+                "colour": r["colour"]
+            }
             if r["id"] not in open_reports:
                 open_reports[r["id"]] = r
                 new += 1
@@ -170,16 +185,31 @@ def main() -> None:
     }, indent=2))
     print(f"\n✓ {len(open_list)} open reports → {OUT_OPEN}")
 
+    # Save updated category cache
+    cache_file.write_text(json.dumps(category_cache, indent=2))
+    print(f"✓ Saved category cache with {len(category_cache)} entries")
+
     # ── Step 2: all reports incl. resolved (bbox only, no category filter) ──
     print(f"\nStep 2 — all reports including resolved …")
     all_pins = fetch_all_bbox(show_old=True)
 
     open_ids = set(open_reports.keys())
-    fixed_list = [
-        {"id": p[3], "lat": p[0], "lon": p[1], "title": p[4]}
-        for p in all_pins
-        if p[3] not in open_ids
-    ]
+    fixed_list = []
+    for p in all_pins:
+        report_id = p[3]
+        if report_id not in open_ids:
+            report = {
+                "id": report_id,
+                "lat": p[0],
+                "lon": p[1],
+                "title": p[4],
+            }
+            # Add category and colour from cache if available
+            if report_id in category_cache:
+                report["category"] = category_cache[report_id]["category"]
+                report["colour"] = category_cache[report_id]["colour"]
+            fixed_list.append(report)
+
     # Deduplicate (same ID can appear across pages)
     seen: set[int] = set()
     fixed_deduped = []
