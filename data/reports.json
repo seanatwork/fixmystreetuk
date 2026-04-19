@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-18T07:55:53Z",
+  "fetched_at": "2026-04-19T08:03:38Z",
   "bbox": [
     0.05,
     52.12,
     0.3,
     52.26
   ],
-  "count": 61,
+  "count": 59,
   "reports": [
     {
       "id": 9301635,
@@ -479,22 +479,6 @@
       "title": "Lack of street lightning near Nisa, Capucin court",
       "category": "Parks/landscapes",
       "colour": "#229954"
-    },
-    {
-      "id": 8311671,
-      "lat": 52.212983,
-      "lon": 0.125913,
-      "title": "Needs cleaning up",
-      "category": "Graffiti",
-      "colour": "#9b59b6"
-    },
-    {
-      "id": 8311273,
-      "lat": 52.238164,
-      "lon": 0.14983,
-      "title": "Litter on Milton roundabout and adjacent slip roads",
-      "category": "Street cleaning",
-      "colour": "#16a085"
     }
   ]
 }
