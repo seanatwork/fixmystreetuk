@@ -1,13 +1,37 @@
 {
-  "fetched_at": "2026-04-24T08:56:54Z",
+  "fetched_at": "2026-04-25T08:01:57Z",
   "bbox": [
     0.05,
     52.12,
     0.3,
     52.26
   ],
-  "count": 59,
+  "count": 62,
   "reports": [
+    {
+      "id": 9349464,
+      "lat": 52.210966,
+      "lon": 0.107658,
+      "title": "Manhole AW0052 Cover collapse",
+      "category": "Other",
+      "colour": "#808b96"
+    },
+    {
+      "id": 9349069,
+      "lat": 52.206675,
+      "lon": 0.126902,
+      "title": "The bench is missing some slats.",
+      "category": "Parks/landscapes",
+      "colour": "#229954"
+    },
+    {
+      "id": 9349033,
+      "lat": 52.205595,
+      "lon": 0.120959,
+      "title": "Three missing benches",
+      "category": "Parks/landscapes",
+      "colour": "#229954"
+    },
     {
       "id": 9333770,
       "lat": 52.234819,
