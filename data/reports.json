@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-04-26T08:13:42Z",
+  "fetched_at": "2026-04-27T09:14:10Z",
   "bbox": [
     0.05,
     52.12,
     0.3,
     52.26
   ],
-  "count": 62,
+  "count": 61,
   "reports": [
     {
       "id": 9349464,
@@ -495,14 +495,6 @@
       "title": "Awful potholes down the entire lane",
       "category": "Potholes",
       "colour": "#e74c3c"
-    },
-    {
-      "id": 8341034,
-      "lat": 52.19349,
-      "lon": 0.18242,
-      "title": "Lack of street lightning near Nisa, Capucin court",
-      "category": "Parks/landscapes",
-      "colour": "#229954"
     }
   ]
 }
