@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-05-02T08:18:28Z",
+  "fetched_at": "2026-05-03T08:44:16Z",
   "bbox": [
     0.05,
     52.12,
     0.3,
     52.26
   ],
-  "count": 60,
+  "count": 59,
   "reports": [
     {
       "id": 9349464,
@@ -95,14 +95,6 @@
       "title": "Delineation of disabled bay now absent",
       "category": "Street cleaning",
       "colour": "#16a085"
-    },
-    {
-      "id": 9240838,
-      "lat": 52.149061,
-      "lon": 0.19117,
-      "title": "Low hanging tree, overhanging onto road",
-      "category": "Trees",
-      "colour": "#2ecc71"
     },
     {
       "id": 9234970,
